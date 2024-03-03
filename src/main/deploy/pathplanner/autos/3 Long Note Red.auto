@@ -1,0 +1,81 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 15.22827843376484,
+      "y": 5.5196408968316515
+    },
+    "rotation": -179.13194855025435
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "FlywheelAuto"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Lone Note Red p.1"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeAuto"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Long Note Red p.1.5"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "FlywheelAuto"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Long Note Red p.2"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "IntakeAuto"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "FlywheelAuto"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "New Folder",
+  "choreoAuto": false
+}

@@ -1,0 +1,43 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.6924444618120005,
+      "y": 6.700750495518085
+    },
+    "rotation": 58.9503428133774
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "FlywheelAuto"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Semi's"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 8.5
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "semi's part 2 "
+          }
+        }
+      ]
+    }
+  },
+  "folder": "New Folder",
+  "choreoAuto": false
+}
