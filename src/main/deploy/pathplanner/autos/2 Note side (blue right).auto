@@ -1,0 +1,31 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.6924444618120005,
+      "y": 4.350225452587657
+    },
+    "rotation": -60.10109816138543
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "FlywheelAuto"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "2 Note side (blue) right p.3"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "New Folder",
+  "choreoAuto": false
+}

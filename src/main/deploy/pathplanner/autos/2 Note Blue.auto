@@ -12,6 +12,12 @@
     "data": {
       "commands": [
         {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
           "type": "named",
           "data": {
             "name": "FlywheelAuto"
@@ -34,6 +40,18 @@
                 }
               }
             ]
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Note 2 Blue"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "FlywheelAuto"
           }
         }
       ]

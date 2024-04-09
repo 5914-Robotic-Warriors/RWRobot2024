@@ -2,8 +2,8 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 15.169807661552642,
-      "y": 5.5430292057165325
+      "x": 15.13,
+      "y": 5.56
     },
     "rotation": -179.57242749316651
   },
@@ -11,6 +11,12 @@
     "type": "sequential",
     "data": {
       "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Initial Red"
+          }
+        },
         {
           "type": "named",
           "data": {

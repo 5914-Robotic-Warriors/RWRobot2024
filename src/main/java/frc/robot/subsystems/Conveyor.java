@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Robot;
+import frc.robot.subsystems.Limelight;
 
 public class Conveyor extends SubsystemBase {
     DigitalInput input = new DigitalInput(0);
@@ -18,7 +19,7 @@ public class Conveyor extends SubsystemBase {
 
     public Conveyor() {
         conveyor1.getConfigurator().apply(Robot.ctreConfigs.conveyorFXConfig);
-        conveyor2.getConfigurator().apply(Robot.ctreConfigs.flywheelFXConfig);
+        conveyor2.getConfigurator().apply(Robot.ctreConfigs.conveyorFXConfig);
         conveyor2.setControl(new Follower(conveyor1.getDeviceID(), true));
     }
 
@@ -26,15 +27,21 @@ public class Conveyor extends SubsystemBase {
         conveyor1.set(speed);
     }
 
+
+
     public boolean getNote(){
         return input.get();
     }
 
     @Override
     public void periodic() {
+
         SmartDashboard.putBoolean("NoteSensor", getNote());
         if (!getNote()){
             candle.setLEDs(0, 255, 0);
+        }
+        else if((!getNote()) && (frc.robot.subsystems.Limelight.Aimed())){
+            candle.setLEDs(0,0,255);
         }
         else{
             candle.setLEDs(255, 0, 0);

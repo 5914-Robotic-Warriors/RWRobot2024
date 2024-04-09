@@ -27,9 +27,12 @@ public class FlywheelAuto extends Command {
 
   @Override
   public void execute() {
-    flywheel.runFlywheel(.75);
-    flywheel.runFlywheel2(.75);
-    conveyor.setConveyor(.15);
+    flywheel.runFlywheel(1);
+    flywheel.runFlywheel2(1);
+
+    if (timer.hasElapsed(.5)) {
+      conveyor.setConveyor(.15);
+    }
   }
 
   @Override

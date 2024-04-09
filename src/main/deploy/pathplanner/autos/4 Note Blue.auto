@@ -12,16 +12,15 @@
     "data": {
       "commands": [
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "FlywheelAuto"
-                }
-              }
-            ]
+            "pathName": "Inital blue"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "FlywheelAuto"
           }
         },
         {

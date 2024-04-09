@@ -6,21 +6,18 @@ package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.Ballscrew;
 import frc.robot.subsystems.Spoiler;
 
-public class AmpAutoSet extends Command {
-  private final Ballscrew ballscrew;
-  //private final Spoiler spoiler;
+public class SpoilerPId extends Command {
+  private final Spoiler spoiler;
   private final PIDController pidController;
-
-  /** Creates a new BallscrewPID. */
-  public AmpAutoSet(Ballscrew ballscrew) {
-    //this.spoiler = spoiler;
-    this.ballscrew = ballscrew;
+  /** Creates a new SpoilerPId. */
+  public SpoilerPId(Spoiler spoiler, double setpoint) {
+    this.spoiler = spoiler;
     this.pidController = new PIDController(0.05, 0, 0);
+    pidController.setSetpoint(setpoint);
     pidController.setTolerance(5);
-    addRequirements(ballscrew);
+    addRequirements(spoiler);
   }
 
   // Called when the command is initially scheduled.
@@ -32,15 +29,13 @@ public class AmpAutoSet extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      pidController.setSetpoint(120.25);
-    double speed = pidController.calculate(ballscrew.getBallscrewEncoder());
-    ballscrew.setAngle(speed);
+    double speed = pidController.calculate(spoiler.getSpoilerEncoder());
+    spoiler.set(speed);
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

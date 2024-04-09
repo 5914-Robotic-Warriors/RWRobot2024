@@ -13,7 +13,7 @@ public class Ballscrew extends SubsystemBase {
 
     public Ballscrew(){
         ballScrew.getConfigurator().apply(Robot.ctreConfigs.ballscrewFXConfig);
-        ballScrew.setPosition(80);
+        //ballScrew.setPosition(80);
     }
     
     public void setAngle(double angle){

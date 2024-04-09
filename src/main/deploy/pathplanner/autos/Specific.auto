@@ -1,0 +1,37 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 15.812986155884557,
+      "y": 6.747527113287845
+    },
+    "rotation": 119.89890183840419
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "FlywheelAuto"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 7.5
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Specific"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "New Folder",
+  "choreoAuto": false
+}

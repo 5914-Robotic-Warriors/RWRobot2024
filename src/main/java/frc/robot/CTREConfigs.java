@@ -5,11 +5,14 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
+
 public final class CTREConfigs {
     public TalonFXConfiguration swerveAngleFXConfig = new TalonFXConfiguration();
     public TalonFXConfiguration swerveDriveFXConfig = new TalonFXConfiguration();
     public TalonFXConfiguration intakeFXConfig = new TalonFXConfiguration();
     public TalonFXConfiguration ballscrewFXConfig = new TalonFXConfiguration();
+    public TalonFXConfiguration spoilerFXConfig = new TalonFXConfiguration();
     public TalonFXConfiguration flywheelFXConfig = new TalonFXConfiguration();
     public TalonFXConfiguration flywheel2FXConfig = new TalonFXConfiguration();
     public CANcoderConfiguration swerveCANcoderConfig = new CANcoderConfiguration();
@@ -18,19 +21,34 @@ public final class CTREConfigs {
 
     public CTREConfigs(){
         // Intake config
-        intakeFXConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+        intakeFXConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
+
+        // Conveyor config
         conveyorFXConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+        conveyorFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
 
         //Winch config
         winchFXConfiguration.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
 
         // Ballscrew config
-        ballscrewFXConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+        ballscrewFXConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
+        ballscrewFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+
+        //Reverse limit is lower limit
+        ballscrewFXConfig.HardwareLimitSwitch.ReverseLimitEnable = true;
         ballscrewFXConfig.HardwareLimitSwitch.ReverseLimitAutosetPositionEnable = true;
         ballscrewFXConfig.HardwareLimitSwitch.ReverseLimitAutosetPositionValue = 0;
-        ballscrewFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+        ballscrewFXConfig.SoftwareLimitSwitch.ReverseSoftLimitEnable = true;
+        ballscrewFXConfig.SoftwareLimitSwitch.ReverseSoftLimitThreshold = 0;
+
+        ballscrewFXConfig.HardwareLimitSwitch.ForwardLimitEnable = true;
+        ballscrewFXConfig.HardwareLimitSwitch.ForwardLimitAutosetPositionEnable = true;
+        ballscrewFXConfig.HardwareLimitSwitch.ForwardLimitAutosetPositionValue = 44.8;
         ballscrewFXConfig.SoftwareLimitSwitch.ForwardSoftLimitEnable = true;
-        ballscrewFXConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = 206;
+        ballscrewFXConfig.SoftwareLimitSwitch.ForwardSoftLimitThreshold = 44.8;
+
+        // Spoiler config
+        spoilerFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
 
         //Flywheel1 config
         flywheelFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
