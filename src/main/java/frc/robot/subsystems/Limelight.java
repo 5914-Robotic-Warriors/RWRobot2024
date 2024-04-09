@@ -4,20 +4,15 @@
 
 package frc.robot.subsystems;
 
-import org.opencv.core.Mat;
-
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.commands.BallscrewPID;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.AimBotExE;
 
 public class Limelight extends SubsystemBase {
 
-  
   NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 
   NetworkTableEntry tx = table.getEntry("tx");
@@ -34,16 +29,13 @@ public class Limelight extends SubsystemBase {
   double aimed;
 
   public Limelight() {
-
   }
 
-  
   public double calculateDistance() {
     angle = (Constants.T_Cam + ty.getDouble(0.0)) * Math.PI / 180.0;
     distance = (Constants.FieldConstants.H_Tag / Math.tan(angle));
 
     return distance;
-
   }
 
   public double calculateTurn() {
@@ -52,18 +44,16 @@ public class Limelight extends SubsystemBase {
     return xoffset;
   }
 
-  public static boolean Aimed(){
-    if((xoffset >=55) && (xoffset <=65)){
+  public static boolean Aimed() {
+    if ((xoffset >= 55) && (xoffset <= 65)) {
       return true;
-    }else{
+    } else {
       return false;
     }
-
   }
 
   @Override
   public void periodic() {
-
     double x = tx.getDouble(0.0);
     double y = ty.getDouble(0.0);
     double area = ta.getDouble(0.0);
@@ -74,6 +64,5 @@ public class Limelight extends SubsystemBase {
     SmartDashboard.putNumber("Limelightz", z);
     SmartDashboard.putNumber("Distance from AprilTag:", calculateDistance());
     SmartDashboard.putNumber("AutoTurn", calculateTurn());
-
   }
 }

@@ -12,12 +12,10 @@ public class Intake extends SubsystemBase {
 
     public Intake() {
         intake1.getConfigurator().apply(Robot.ctreConfigs.intakeFXConfig);
-
         intake2.setControl(new Follower(intake1.getDeviceID(), false));
     }
 
-    public void runIntake(double speed){
+    public void runIntake(double speed) {
         intake1.set(speed);
-        
     }
 }

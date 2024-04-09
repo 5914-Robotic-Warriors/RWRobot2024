@@ -11,31 +11,28 @@ public class Ballscrew extends SubsystemBase {
 
     public boolean ballscrewToggle = true;
 
-    public Ballscrew(){
+    public Ballscrew() {
         ballScrew.getConfigurator().apply(Robot.ctreConfigs.ballscrewFXConfig);
-        //ballScrew.setPosition(80);
     }
-    
-    public void setAngle(double angle){
+
+    public void setAngle(double angle) {
         ballScrew.set(angle);
     }
 
-    public double getBallscrewEncoder(){
+    public double getBallscrewEncoder() {
         return ballScrew.getPosition().getValueAsDouble();
     }
 
-    public boolean getBallscrewToggle(){
+    public boolean getBallscrewToggle() {
         return ballscrewToggle;
     }
 
-    public void toggleBool(){
+    public void toggleBool() {
         ballscrewToggle = !ballscrewToggle;
     }
 
     @Override
-    public void periodic(){
-       SmartDashboard.putNumber("Ballscrew encoder: ", ballScrew.getPosition().getValueAsDouble());
+    public void periodic() {
+        SmartDashboard.putNumber("Ballscrew encoder: ", ballScrew.getPosition().getValueAsDouble());
     }
-
-    //SmartDashboard.putNumber("Ballscrew angle", getPosition().angle.getDegrees());
 }

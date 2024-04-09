@@ -1,4 +1,3 @@
-
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -20,7 +19,6 @@ public class FlywheelAuto extends Command {
 
   @Override
   public void initialize() {
-    // System.out.println("\nFlywheelJoystickCMD started\n");
     timer.reset();
     timer.start();
   }
@@ -37,7 +35,6 @@ public class FlywheelAuto extends Command {
 
   @Override
   public void end(boolean interrupted) {
-    // System.out.println("\nFlywheelJoystickCMD ended\n");
     flywheel.runFlywheel(0);
     flywheel.runFlywheel2(0);
     conveyor.setConveyor(0);

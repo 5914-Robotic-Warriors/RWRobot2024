@@ -8,7 +8,6 @@ import frc.robot.subsystems.Ballscrew;
 public class BallscrewJoystickCMD extends Command {
     private final Ballscrew ballscrew;
     private final Supplier<Double> speed;
-    
 
     public BallscrewJoystickCMD(Ballscrew ballscrew, Supplier<Double> speed) {
         this.ballscrew = ballscrew;
@@ -18,18 +17,15 @@ public class BallscrewJoystickCMD extends Command {
 
     @Override
     public void initialize() {
-        // System.out.println("\nBallscrewJoystickCMD started\n");
     }
 
     @Override
-    public void execute() {    
+    public void execute() {
         ballscrew.setAngle(speed.get());
-
     }
 
     @Override
     public void end(boolean interrupted) {
-        // System.out.println("\nBallscrewJoystickCMD ended\n");
     }
 
     @Override

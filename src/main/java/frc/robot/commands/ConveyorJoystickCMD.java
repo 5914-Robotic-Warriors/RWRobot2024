@@ -1,4 +1,3 @@
-
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
@@ -17,7 +16,6 @@ public class ConveyorJoystickCMD extends Command {
 
   @Override
   public void initialize() {
-    // System.out.println("\nConveyorJoystickCMD started\n");
   }
 
   @Override
@@ -31,16 +29,14 @@ public class ConveyorJoystickCMD extends Command {
 
   @Override
   public void end(boolean interrupted) {
-    // System.out.println("\nCOnveyorJoystickCMD ended\n");
     conveyor.setConveyor(0);
   }
 
   @Override
   public boolean isFinished() {
-    if (!conveyor.getNote()){
+    if (!conveyor.getNote()) {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }

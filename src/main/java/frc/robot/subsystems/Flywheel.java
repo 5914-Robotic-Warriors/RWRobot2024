@@ -13,14 +13,14 @@ public class Flywheel extends SubsystemBase {
     public Flywheel() {
         flywheel2.setControl(new Follower(flywheel1.getDeviceID(), true));
         flywheel1.getConfigurator().apply(Robot.ctreConfigs.flywheelFXConfig);
-        flywheel2.getConfigurator().apply(Robot.ctreConfigs.flywheel2FXConfig); 
+        flywheel2.getConfigurator().apply(Robot.ctreConfigs.flywheel2FXConfig);
     }
 
-    public void runFlywheel(double speed){
+    public void runFlywheel(double speed) {
         flywheel1.set(speed);
     }
 
-    public void runFlywheel2(double speed){
+    public void runFlywheel2(double speed) {
         flywheel2.set(speed);
     }
 }

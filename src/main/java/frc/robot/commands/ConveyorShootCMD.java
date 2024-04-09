@@ -14,7 +14,6 @@ public class ConveyorShootCMD extends Command {
 
   @Override
   public void initialize() {
-    // System.out.println("\nConveyorJoystickCMD started\n");
   }
 
   @Override
@@ -24,7 +23,6 @@ public class ConveyorShootCMD extends Command {
 
   @Override
   public void end(boolean interrupted) {
-    // System.out.println("\nCOnveyorJoystickCMD ended\n");
     conveyor.setConveyor(0);
   }
 

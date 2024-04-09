@@ -13,12 +13,10 @@ public class FlywheelJoystickCMD extends Command {
     this.flywheel = flywheel;
     this.speed = speed;
     addRequirements(flywheel);
-
   }
 
   @Override
   public void initialize() {
-    // System.out.println("\nFlywheelJoystickCMD started\n");
   }
 
   @Override
@@ -35,7 +33,6 @@ public class FlywheelJoystickCMD extends Command {
 
   @Override
   public void end(boolean interrupted) {
-    // System.out.println("\nFlywheelJoystickCMD ended\n");
   }
 
   @Override
