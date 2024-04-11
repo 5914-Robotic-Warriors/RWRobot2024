@@ -38,6 +38,10 @@ public class Limelight extends SubsystemBase {
     return distance;
   }
 
+public boolean getNote(){
+        return input.get();
+    }
+
   public double calculateTurn() {
     xoffset = (Constants.T_Cam + tx.getDouble(0.0)) * Math.PI / 180.0;
 
@@ -64,5 +68,16 @@ public class Limelight extends SubsystemBase {
     SmartDashboard.putNumber("Limelightz", z);
     SmartDashboard.putNumber("Distance from AprilTag:", calculateDistance());
     SmartDashboard.putNumber("AutoTurn", calculateTurn());
+    SmartDashboard.putBoolean("Note sensor", getNote());
+    
+    if (getNote()){
+      candle.setLEDs(0,255,0);
+    }
+    else if(!getNote()){
+      candle.setLEDs(255,0,0);
+
+    }else{
+      candle.setLEDs(0,0,255);
+    }
   }
 }

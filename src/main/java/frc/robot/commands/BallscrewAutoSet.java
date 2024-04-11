@@ -8,10 +8,12 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.networktables.NetworkTableValue;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Ballscrew;
 import frc.robot.subsystems.Conveyor;
 import frc.robot.subsystems.Limelight;
+import com.ctre.phoenix.led.CANdle;
 
 public class BallscrewAutoSet extends Command {
   NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
@@ -19,6 +21,7 @@ public class BallscrewAutoSet extends Command {
   NetworkTableEntry tx = table.getEntry("tx");
   NetworkTableEntry ty = table.getEntry("ty");
   NetworkTableEntry ta = table.getEntry("ta");
+  NetworkTableValue txValue;
 
   double angle;
   // double distance;
@@ -56,7 +59,7 @@ public class BallscrewAutoSet extends Command {
 
       pidController.setSetpoint((0.009 * ((limelight.calculateDistance() - 100) * (limelight.calculateDistance() - 100))) + 2);
       /*} 
-     
+
     if ((limelight.calculateDistance() <= 45) && (!conveyor.getNote())) {
       pidController.setSetpoint(42);
     }

@@ -38,7 +38,5 @@ public class Conveyor extends SubsystemBase {
         } else if ((!getNote()) && (frc.robot.subsystems.Limelight.Aimed())) {
             candle.setLEDs(0, 0, 255);
         } else {
-            candle.setLEDs(255, 0, 0);
-        }
     }
 }
