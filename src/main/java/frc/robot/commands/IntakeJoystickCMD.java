@@ -19,7 +19,6 @@ public class IntakeJoystickCMD extends Command {
 
   @Override
   public void initialize() {
-    // System.out.println("\nIntakeJoystickCMD started\n");
   }
 
   @Override
@@ -33,16 +32,14 @@ public class IntakeJoystickCMD extends Command {
 
   @Override
   public void end(boolean interrupted) {
-    // System.out.println("\nIntakeJoystickCMD ended\n");
     intake.runIntake(0);
   }
 
   @Override
   public boolean isFinished() {
-    if (!conveyor.getNote()){
+    if (!conveyor.getNote()) {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }

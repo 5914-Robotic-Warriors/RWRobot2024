@@ -8,25 +8,23 @@ public class BallscrewToggle extends Command {
     private boolean runOnce = true;
 
     public BallscrewToggle() {
-        
     }
 
-    public boolean getBallscrewToggle(){
+    public boolean getBallscrewToggle() {
         return ballscrewToggle;
     }
 
-    public void toggleBool(){
+    public void toggleBool() {
         ballscrewToggle = !ballscrewToggle;
     }
 
     @Override
     public void initialize() {
-        
     }
 
     @Override
     public void execute() {
-        if (runOnce){
+        if (runOnce) {
             ballscrewToggle = !ballscrewToggle;
         }
     }
@@ -40,5 +38,4 @@ public class BallscrewToggle extends Command {
     public boolean isFinished() {
         return false;
     }
-
 }

@@ -15,10 +15,8 @@ public class Spoiler extends SubsystemBase {
   private final TalonFX spoiler = new TalonFX(49);
   private final DutyCycleEncoder spoilerEncoder = new DutyCycleEncoder(1);
 
-  /** Creates a new Spoiler. */
   public Spoiler() {
     spoiler.getConfigurator().apply(Robot.ctreConfigs.spoilerFXConfig);
-    // spoiler.setPosition(80);
   }
 
   public void set(double speed) {

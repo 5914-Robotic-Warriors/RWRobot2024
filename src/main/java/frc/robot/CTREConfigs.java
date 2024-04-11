@@ -5,8 +5,6 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
-
 public final class CTREConfigs {
     public TalonFXConfiguration swerveAngleFXConfig = new TalonFXConfiguration();
     public TalonFXConfiguration swerveDriveFXConfig = new TalonFXConfiguration();
@@ -19,7 +17,7 @@ public final class CTREConfigs {
     public TalonFXConfiguration conveyorFXConfig = new TalonFXConfiguration();
     public TalonFXConfiguration winchFXConfiguration = new TalonFXConfiguration();
 
-    public CTREConfigs(){
+    public CTREConfigs() {
         // Intake config
         intakeFXConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
 
@@ -27,14 +25,14 @@ public final class CTREConfigs {
         conveyorFXConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
         conveyorFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
 
-        //Winch config
+        // Winch config
         winchFXConfiguration.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
 
         // Ballscrew config
         ballscrewFXConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
         ballscrewFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
 
-        //Reverse limit is lower limit
+        // Reverse limit is lower limit
         ballscrewFXConfig.HardwareLimitSwitch.ReverseLimitEnable = true;
         ballscrewFXConfig.HardwareLimitSwitch.ReverseLimitAutosetPositionEnable = true;
         ballscrewFXConfig.HardwareLimitSwitch.ReverseLimitAutosetPositionValue = 0;
@@ -50,11 +48,11 @@ public final class CTREConfigs {
         // Spoiler config
         spoilerFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
 
-        //Flywheel1 config
+        // Flywheel1 config
         flywheelFXConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
         flywheelFXConfig.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
 
-        //Flywheel2 config
+        // Flywheel2 config
         flywheel2FXConfig.MotorOutput.NeutralMode = NeutralModeValue.Coast;
         flywheel2FXConfig.MotorOutput.Inverted = InvertedValue.CounterClockwise_Positive;
 
@@ -69,7 +67,7 @@ public final class CTREConfigs {
         /* Gear Ratio and Wrapping Config */
         swerveAngleFXConfig.Feedback.SensorToMechanismRatio = Constants.Swerve.angleGearRatio;
         swerveAngleFXConfig.ClosedLoopGeneral.ContinuousWrap = true;
-        
+
         /* Current Limiting */
         swerveAngleFXConfig.CurrentLimits.SupplyCurrentLimitEnable = Constants.Swerve.angleEnableCurrentLimit;
         swerveAngleFXConfig.CurrentLimits.SupplyCurrentLimit = Constants.Swerve.angleCurrentLimit;

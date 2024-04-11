@@ -15,12 +15,11 @@ public class Winch extends SubsystemBase {
     winch.getConfigurator().apply(Robot.ctreConfigs.winchFXConfiguration);
   }
 
-  public void runWinch(double speed){
+  public void runWinch(double speed) {
     winch.set(speed);
   }
 
   @Override
   public void periodic() {
-    
   }
 }

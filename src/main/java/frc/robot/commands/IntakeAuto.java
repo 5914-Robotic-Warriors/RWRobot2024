@@ -16,28 +16,25 @@ public class IntakeAuto extends Command {
 
   @Override
   public void initialize() {
-    // System.out.println("\nIntakeJoystickCMD started\n");
   }
 
   @Override
   public void execute() {
-      intake.runIntake(.75);
-      conveyor.setConveyor(.15);
+    intake.runIntake(.75);
+    conveyor.setConveyor(.15);
   }
 
   @Override
   public void end(boolean interrupted) {
-    // System.out.println("\nIntakeJoystickCMD ended\n");
     intake.runIntake(0);
     conveyor.setConveyor(0);
   }
 
   @Override
   public boolean isFinished() {
-    if (!conveyor.getNote()){
+    if (!conveyor.getNote()) {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }

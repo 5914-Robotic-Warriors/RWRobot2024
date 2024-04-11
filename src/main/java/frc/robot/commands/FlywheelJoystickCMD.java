@@ -13,20 +13,18 @@ public class FlywheelJoystickCMD extends Command {
     this.flywheel = flywheel;
     this.speed = speed;
     addRequirements(flywheel);
-
   }
 
   @Override
   public void initialize() {
-    // System.out.println("\nFlywheelJoystickCMD started\n");
   }
 
   @Override
   public void execute() {
 
     if (speed.get()) {
-      flywheel.runFlywheel(.75);
-      flywheel.runFlywheel2(.75);
+      flywheel.runFlywheel(1);
+      flywheel.runFlywheel2(1);
     } else {
       flywheel.runFlywheel(0);
       flywheel.runFlywheel2(0);
@@ -35,7 +33,6 @@ public class FlywheelJoystickCMD extends Command {
 
   @Override
   public void end(boolean interrupted) {
-    // System.out.println("\nFlywheelJoystickCMD ended\n");
   }
 
   @Override

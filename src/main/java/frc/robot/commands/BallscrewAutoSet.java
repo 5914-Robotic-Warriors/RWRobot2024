@@ -53,13 +53,13 @@ public class BallscrewAutoSet extends Command {
   @Override
   public void execute() {
 
-      /*if(!conveyor.getNote()){
-      pidController.setSetpoint(45);
-      } */
+      if(!conveyor.getNote()){
+      //pidController.setSetpoint((-0.005 * (limelight.calculateDistance() * 2)) + 50);
+      //pidController.setSetpoint((-0.45 * limelight.calculateDistance()) + 60);
 
-     if ((limelight.calculateDistance() >=62) && (limelight.calculateDistance() <=80) && (!conveyor.getNote()) && ()){
-      pidController.setSetpoint(24);
-     /* 
+      pidController.setSetpoint((0.009 * ((limelight.calculateDistance() - 100) * (limelight.calculateDistance() - 100))) + 2);
+      /*} 
+
     if ((limelight.calculateDistance() <= 45) && (!conveyor.getNote())) {
       pidController.setSetpoint(42);
     }
