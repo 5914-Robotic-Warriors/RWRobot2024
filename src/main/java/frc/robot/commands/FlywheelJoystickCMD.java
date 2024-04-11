@@ -23,8 +23,8 @@ public class FlywheelJoystickCMD extends Command {
   public void execute() {
 
     if (speed.get()) {
-      flywheel.runFlywheel(.75);
-      flywheel.runFlywheel2(.75);
+      flywheel.runFlywheel(1);
+      flywheel.runFlywheel2(1);
     } else {
       flywheel.runFlywheel(0);
       flywheel.runFlywheel2(0);

@@ -63,7 +63,7 @@ public class RobotContainer {
                         () -> -stick.getRawAxis(rotationAxis),
                         () -> robotCentric.getAsBoolean()));
 
-        ballscrew.setDefaultCommand(new BallscrewAutoSet(ballscrew, conveyor));
+        ballscrew.setDefaultCommand(new BallscrewAutoSet(ballscrew, conveyor, limelight));
         intake.setDefaultCommand(new IntakeJoystickCMD(intake, conveyor, () -> cross.getAsBoolean()));
         conveyor.setDefaultCommand(new ConveyorJoystickCMD(conveyor, () -> cross.getAsBoolean()));
         flywheel.setDefaultCommand(new FlywheelJoystickCMD(flywheel, () -> square.getAsBoolean()));
