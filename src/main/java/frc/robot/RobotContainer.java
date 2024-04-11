@@ -51,6 +51,7 @@ public class RobotContainer {
     //private final JoystickButton Aim = new JoystickButton(stick, PS4Controller.Button.kL2.value);
     //private final JoystickButton toggleclimb = new JoystickButton(stick1, PS4Controller.Button.kCross.value) ;
     private final JoystickButton L1 = new JoystickButton(stick, PS4Controller.Button.kL1.value);
+    private final JoystickButton purgeNote = new JoystickButton(stick, PS4Controller.Button.kL2.value);
     
     /* Subsystems */
     public static final Swerve s_Swerve = new Swerve();
@@ -116,6 +117,7 @@ public class RobotContainer {
         conveyor.setDefaultCommand(new ConveyorJoystickCMD(conveyor, () -> cross.getAsBoolean()));
         flywheel.setDefaultCommand(new FlywheelJoystickCMD(flywheel, () -> square.getAsBoolean()));
         spoiler.setDefaultCommand(new SpoilerTest(spoiler, () -> stick1.getRawAxis(5)));
+
         //flywheel.setDefaultCommand(new ));
         // winch.setDefaultCommand(new ClimbingWinchCMD(winch, () -> touchpad.getAsBoolean()));
         
@@ -159,6 +161,7 @@ public class RobotContainer {
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroHeading()));
         circle.whileTrue(new ParallelCommandGroup(new ConveyorShootCMD(conveyor)));
         triangle.whileTrue(new ParallelCommandGroup(new FlywheelAmp(flywheel), new SpoilerPId(spoiler, .41)));
+        //purgeNote.whileTrue(new PurgeCMD(intake, conveyor, -.5));
         //test.whileTrue(new SpoilerTest(spoiler, .5));
         //Aim.toggleOnTrue(new AimBotExE());
         // climb.whileTrue(new InstantCommand(new winch.runWinch(1)));

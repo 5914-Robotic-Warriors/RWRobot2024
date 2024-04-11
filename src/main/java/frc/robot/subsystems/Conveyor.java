@@ -37,14 +37,11 @@ public class Conveyor extends SubsystemBase {
     public void periodic() {
 
         SmartDashboard.putBoolean("NoteSensor", getNote());
-        if (!getNote()){
+        /*if (!getNote()){
             candle.setLEDs(0, 255, 0);
-        }
-        else if((!getNote()) && (frc.robot.subsystems.Limelight.Aimed())){
-            candle.setLEDs(0,0,255);
-        }
-        else{
+
+        }else{
             candle.setLEDs(255, 0, 0);
-        }
+        }*/
     }
 }

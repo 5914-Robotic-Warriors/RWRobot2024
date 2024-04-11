@@ -6,17 +6,20 @@ package frc.robot.subsystems;
 
 import org.opencv.core.Mat;
 
+import com.ctre.phoenix.led.CANdle;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.commands.BallscrewPID;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.AimBotExE;
 
 public class Limelight extends SubsystemBase {
-
+  private final CANdle candle = new CANdle(33);
+   DigitalInput input = new DigitalInput(0);
   
   NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 
@@ -46,6 +49,10 @@ public class Limelight extends SubsystemBase {
 
   }
 
+public boolean getNote(){
+        return input.get();
+    }
+
   public double calculateTurn() {
     xoffset = (Constants.T_Cam + tx.getDouble(0.0)) * Math.PI / 180.0;
 
@@ -74,6 +81,17 @@ public class Limelight extends SubsystemBase {
     SmartDashboard.putNumber("Limelightz", z);
     SmartDashboard.putNumber("Distance from AprilTag:", calculateDistance());
     SmartDashboard.putNumber("AutoTurn", calculateTurn());
+    SmartDashboard.putBoolean("Note sensor", getNote());
+    
+    if (getNote()){
+      candle.setLEDs(0,255,0);
+    }
+    else if(!getNote()){
+      candle.setLEDs(255,0,0);
+
+    }else{
+      candle.setLEDs(0,0,255);
+    }
 
   }
 }
