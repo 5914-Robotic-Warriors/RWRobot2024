@@ -14,11 +14,11 @@ import frc.lib.util.SwerveModuleConstants;
 
 public final class Constants {
 
-    public static final double T_Cam = 35;
+    public static final float T_Cam = 35;
     public static final double targetangle = 60;
 
     public static class FieldConstants {
-        public static double H_Tag = 57;
+        public static float H_Tag = 57;
     }
 
     // Aimbot.ExE.PIDValues

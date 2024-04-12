@@ -14,6 +14,7 @@ public class Conveyor extends SubsystemBase {
     private final TalonFX conveyor1 = new TalonFX(9);
     private final TalonFX conveyor2 = new TalonFX(24);
     private final CANdle candle = new CANdle(33);
+    private final Limelight limelight = new Limelight();
 
     public Conveyor() {
         conveyor1.getConfigurator().apply(Robot.ctreConfigs.conveyorFXConfig);
@@ -33,10 +34,12 @@ public class Conveyor extends SubsystemBase {
     public void periodic() {
 
         SmartDashboard.putBoolean("NoteSensor", getNote());
-        if (!getNote()) {
-            candle.setLEDs(0, 255, 0);
-        } else if ((!getNote()) && (frc.robot.subsystems.Limelight.Aimed())) {
+        if ((!getNote()) && limelight.calculateTurn() >= -10 && limelight.calculateTurn() <= 10 && limelight.calculateTurn() != 0) {
             candle.setLEDs(0, 0, 255);
+        } else if (!getNote()) {
+            candle.setLEDs(0, 255, 0);
         } else {
+            candle.setLEDs(0, 0, 0);
+        }
     }
 }

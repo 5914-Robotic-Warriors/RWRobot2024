@@ -88,13 +88,13 @@ public class RobotContainer {
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroHeading()));
         circle.whileTrue(new ParallelCommandGroup(new ConveyorShootCMD(conveyor)));
         triangle.whileTrue(new ParallelCommandGroup(new FlywheelAmp(flywheel), new SpoilerPId(spoiler, .41)));
-        //purgeNote.whileTrue(new PurgeCMD(intake, conveyor, -.5));
+        purgeNote.whileTrue(new PurgeCMD(intake, conveyor, -.5));
         //test.whileTrue(new SpoilerTest(spoiler, .5));
         //Aim.toggleOnTrue(new AimBotExE());
         // climb.whileTrue(new InstantCommand(new winch.runWinch(1)));
         L1.whileTrue(new ClimbingWinchCMD(winch, -.75));
         R1.whileTrue(new ClimbingWinchCMD(winch, .75));
-        options.toggleOnTrue(new BallscrewJoystickCMD(ballscrew, () -> (stick.getL2Axis() - stick.getR2Axis())));
+        //options.toggleOnTrue(new BallscrewJoystickCMD(ballscrew, () -> (stick.getL2Axis() - stick.getR2Axis())));
     }
 
     public Command getAutonomousCommand() {

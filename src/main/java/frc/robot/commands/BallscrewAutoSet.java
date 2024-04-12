@@ -52,12 +52,14 @@ public class BallscrewAutoSet extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
       if(!conveyor.getNote()){
+
+        pidController.setSetpoint((-0.6 * limelight.calculateDistance()) + 64.687);
+
       //pidController.setSetpoint((-0.005 * (limelight.calculateDistance() * 2)) + 50);
       //pidController.setSetpoint((-0.45 * limelight.calculateDistance()) + 60);
 
-      pidController.setSetpoint((0.009 * ((limelight.calculateDistance() - 100) * (limelight.calculateDistance() - 100))) + 2);
+      //pidController.setSetpoint((0.009 * ((limelight.calculateDistance() - 100) * (limelight.calculateDistance() - 100))) + 2);
       /*} 
 
     if ((limelight.calculateDistance() <= 45) && (!conveyor.getNote())) {
@@ -83,9 +85,11 @@ public class BallscrewAutoSet extends Command {
     else if ((limelight.calculateDistance() > 87) && (limelight.calculateDistance() <= 92) && (!conveyor.getNote())) {
       pidController.setSetpoint(12);*/
     
-    } else {
+    } 
+    
+    /*else {
       pidController.setSetpoint(-5);
-    }
+    }*/
     double speed = pidController.calculate(ballscrew.getBallscrewEncoder());
     ballscrew.setAngle(speed);
   }
